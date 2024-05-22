@@ -1,0 +1,15 @@
+<div class="container mt-2 p-4">
+  <h1>All restaurants</h1>
+  <%= link_to "Add a restaurant", new_restaurant_path, class: "btn btn-primary" %>
+  <% @restaurants.each do |restaurant| %>
+    <div class="card my-3">
+      <div class="card-body">
+        <%= link_to restaurant.name, restaurant, class: "card-title card-link" %>
+        <p><%= restaurant.address %></p>
+        <p><%= restaurant.phone_number %></p>
+        <p><%= restaurant.category %></p>
+        <%= link_to "Delete", restaurant_path(restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      </div>
+    </div>
+  <% end %>
+</div>
